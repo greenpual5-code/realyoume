@@ -1,3 +1,10 @@
+// 背景音乐播放控制
+const bgm = document.getElementById("bgm");
+document.addEventListener("click", () => {
+  if (bgm.paused) {
+    bgm.play();
+  }
+});
 // 💖 添加回忆按钮功能
 const addBtn = document.getElementById("addMemory");
 const memories = document.getElementById("memories");
