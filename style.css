@@ -1,36 +1,95 @@
+/* ====== 全局设置 ====== */
 body, html {
   margin: 0;
   padding: 0;
-  font-family: "Helvetica Neue", sans-serif;
+  height: 100%;
+  font-family: "Helvetica Neue", "PingFang SC", sans-serif;
+  background-color: #ffe6eb;
+  overflow-x: hidden;
 }
 
+/* ====== 背景流动粉金渐变 ====== */
 .background {
   height: 100vh;
+  width: 100vw;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #ffccd5, #ffc0cb);
+  align-items: center;
+  background: linear-gradient(135deg, #ffd6e0, #ffc0cb, #ffb6c1, #ffe6eb);
+  background-size: 300% 300%;
+  animation: bgflow 8s ease infinite;
 }
 
+@keyframes bgflow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ====== 标题文字呼吸光晕 ====== */
 .hearts h1 {
   font-size: 3em;
-  color: #fff;
-  text-shadow: 2px 2px 5px #ff99aa;
+  color: white;
+  text-shadow: 0 0 20px rgba(255, 182, 193, 0.8),
+               0 0 40px rgba(255, 105, 180, 0.6);
+  animation: glow 4s ease-in-out infinite;
+  letter-spacing: 2px;
 }
 
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 15px rgba(255, 182, 193, 0.6),
+                 0 0 30px rgba(255, 182, 193, 0.4);
+  }
+  50% {
+    text-shadow: 0 0 35px rgba(255, 182, 193, 0.9),
+                 0 0 70px rgba(255, 105, 180, 0.7);
+  }
+  100% {
+    text-shadow: 0 0 15px rgba(255, 182, 193, 0.6),
+                 0 0 30px rgba(255, 182, 193, 0.4);
+  }
+}
+
+/* ====== 按钮样式 ====== */
 button {
   margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 1.2em;
-  border: none;
-  border-radius: 20px;
-  background: #ff99aa;
+  padding: 12px 28px;
+  font-size: 1.1em;
+  font-weight: 500;
   color: white;
+  background: linear-gradient(90deg, #ff99aa, #ffb6c1);
+  border: none;
+  border-radius: 30px;
   cursor: pointer;
+  box-shadow: 0 0 10px rgba(255,182,193,0.6);
+  transition: all 0.3s ease;
 }
 
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255,105,180,0.7);
+}
+
+/* ====== 回忆列表 ====== */
 #memories {
-  margin-top: 20px;
+  margin-top: 25px;
   width: 80%;
+  max-width: 500px;
+}
+
+#memories div {
+  background: rgba(255,255,255,0.2);
+  border-radius: 12px;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  color: #fff;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 8px rgba(255,182,193,0.3);
+  transition: transform 0.3s ease;
+}
+
+#memories div:hover {
+  transform: translateY(-3px);
 }
