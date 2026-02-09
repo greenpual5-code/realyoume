@@ -1,84 +1,73 @@
-/* ====== 全局设置 ====== */
+/* ===== 全局浪漫粉色恋爱风格 ===== */
 body, html {
   margin: 0;
   padding: 0;
   height: 100%;
-  font-family: "Helvetica Neue", "PingFang SC", sans-serif;
+  font-family: "Comic Neue", "PingFang SC", sans-serif;
   background-color: #ffe6eb;
   overflow-x: hidden;
 }
 
-/* ====== 背景流动粉金渐变 ====== */
+/* ===== 背景：流动的粉色光晕 ===== */
 .background {
   height: 100vh;
-  width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #ffd6e0, #ffc0cb, #ffb6c1, #ffe6eb);
-  background-size: 300% 300%;
-  animation: bgflow 8s ease infinite;
+  background: radial-gradient(circle at top left, #ffc0cb 0%, #ffb6c1 30%, #ffe6eb 100%);
+  background-size: 200% 200%;
+  animation: bgMove 10s ease-in-out infinite alternate;
 }
 
-@keyframes bgflow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+@keyframes bgMove {
+  from { background-position: 0% 0%; }
+  to { background-position: 100% 100%; }
 }
 
-/* ====== 标题文字呼吸光晕 ====== */
+/* ===== 标题浪漫发光 ===== */
 .hearts h1 {
   font-size: 3em;
-  color: white;
-  text-shadow: 0 0 20px rgba(255, 182, 193, 0.8),
-               0 0 40px rgba(255, 105, 180, 0.6);
+  color: #fff0f5;
+  text-shadow: 0 0 20px rgba(255,182,193,0.8),
+               0 0 40px rgba(255,105,180,0.6),
+               0 0 80px rgba(255,20,147,0.4);
   animation: glow 4s ease-in-out infinite;
   letter-spacing: 2px;
 }
 
 @keyframes glow {
-  0% {
-    text-shadow: 0 0 15px rgba(255, 182, 193, 0.6),
-                 0 0 30px rgba(255, 182, 193, 0.4);
-  }
-  50% {
-    text-shadow: 0 0 35px rgba(255, 182, 193, 0.9),
-                 0 0 70px rgba(255, 105, 180, 0.7);
-  }
-  100% {
-    text-shadow: 0 0 15px rgba(255, 182, 193, 0.6),
-                 0 0 30px rgba(255, 182, 193, 0.4);
-  }
+  0%, 100% { opacity: 0.9; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.03); }
 }
 
-/* ====== 按钮样式 ====== */
+/* ===== 按钮：粉金光晕 ===== */
 button {
-  margin-top: 20px;
+  margin-top: 25px;
   padding: 12px 28px;
-  font-size: 1.1em;
-  font-weight: 500;
+  font-size: 1.2em;
+  font-weight: 600;
   color: white;
-  background: linear-gradient(90deg, #ff99aa, #ffb6c1);
+  background: linear-gradient(90deg, #ff99aa, #ffb6c1, #ffc0cb);
   border: none;
   border-radius: 30px;
   cursor: pointer;
-  box-shadow: 0 0 10px rgba(255,182,193,0.6);
+  box-shadow: 0 0 15px rgba(255,182,193,0.8);
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
 }
 
 button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(255,105,180,0.7);
+  transform: scale(1.08);
+  box-shadow: 0 0 30px rgba(255,105,180,0.9);
 }
 
-/* 💗 点击爱心扩散特效 */
+/* 爱心扩散波纹 */
 button .heart {
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   background: radial-gradient(circle at center, #ff99aa 30%, transparent 70%);
   border-radius: 50%;
   transform: scale(0);
@@ -86,13 +75,10 @@ button .heart {
 }
 
 @keyframes ripple {
-  to {
-    transform: scale(12);
-    opacity: 0;
-  }
+  to { transform: scale(12); opacity: 0; }
 }
 
-/* 💞 飘起小爱心动画 */
+/* 飘起小爱心 */
 .floating-heart {
   position: fixed;
   bottom: 100px;
@@ -108,24 +94,26 @@ button .heart {
   100% { transform: translateY(-250px) scale(0.8); opacity: 0; }
 }
 
-/* ====== 回忆列表 ====== */
+/* 回忆卡片 */
 #memories {
-  margin-top: 25px;
-  width: 80%;
-  max-width: 500px;
+  margin-top: 30px;
+  width: 85%;
+  max-width: 520px;
 }
 
 #memories div {
-  background: rgba(255,255,255,0.2);
-  border-radius: 12px;
-  padding: 10px 15px;
-  margin-bottom: 10px;
+  background: rgba(255,255,255,0.3);
+  border-radius: 15px;
+  padding: 12px 18px;
+  margin-bottom: 12px;
   color: #fff;
-  backdrop-filter: blur(5px);
-  box-shadow: 0 0 8px rgba(255,182,193,0.3);
-  transition: transform 0.3s ease;
+  font-size: 1.05em;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 12px rgba(255,182,193,0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 #memories div:hover {
   transform: translateY(-3px);
+  box-shadow: 0 0 18px rgba(255,105,180,0.8);
 }
